@@ -709,6 +709,7 @@
         }
         .option.correct,.id-option.correct,.slide-q-option.correct,.match-item.matched{background:#d7f5d7 !important;border-color:#238636 !important;color:#14532d !important;}
         .option.wrong,.id-option.wrong,.slide-q-option.wrong,.match-item.wrong{background:#ffe0e0 !important;border-color:#d1242f !important;color:#7f1d1d !important;}
+        .source-text{overflow-wrap:anywhere;line-height:1.5;}
     </style>
 </head>
 <body>
@@ -805,6 +806,7 @@
     </div>
 
     <footer>© 1998-2026 NSTP Study Hub — FATHOM OS 9.1 · Active recall for all modules</footer>
+<script src="lesson-content.js"></script>
 <script>
         // =========================================================
         // DATA
@@ -1614,7 +1616,7 @@
         let srsData = {}, srsDueDeck = [], srsIndex = 0, srsRevealed = false;
         let defineStats = {};
 
-        // === LESSON ROADMAP DATA: 6 lesson slides + 6 questions = 12 per button (10-16 required) ===
+        // === LESSON ROADMAP DATA: lesson slides followed by six questions per module ===
         const lessonDecks = {
             'vision-mission': {
                 title: 'TSU Vision, Mission, and Core Values',
@@ -1713,14 +1715,7 @@
             },
             'drug': {
                 title: 'Drug Education',
-                slides: [
-                    {title:'What are Drugs & Kendall Story', html:`<p>Chemicals changing body function; psychoactive affects CNS. <strong>Kendall</strong>: waitress, rave with Irene/Matt, ecstasy pink diamond → dehydrated Irene collapses, rehab vs jail.</p>`},
-                    {title:'Routes & Signs', html:`<ul><li>Ingestion, Inhalation, Injection, Suppository, Topical</li><li>Signs: attendance change, irritable, poor appearance, covering arms, stealing/borrowing, peer association</li></ul>`},
-                    {title:'Effects', html:`<p><strong>Person:</strong> deterioration, depression<br><strong>Family:</strong> humiliation, broken unity<br><strong>Community:</strong> petty crimes, fear<br><strong>Society:</strong> heinous crimes, moral decay, security threat</p>`},
-                    {title:'Risk Factors', html:`<p>Family (drug use, poor management, conflict, deprivation), Social (antisocial, peer pressure strongest), School (failure, low commitment), Mobility, Genetic, Media.</p>`},
-                    {title:'Abused Substances', html:`<p>Alcohol, Caffeine, Nicotine, Marijuana, Cocaine, Ecstasy, Shabu (tachycardia/meth mouth), Benzodiazepines. PH teens: ecstasy 2.2% (12-19y).</p>`},
-                    {title:'RA 9165 & Prevention', html:`<p>Comprehensive Dangerous Drugs Act 2002 (repeals RA 6425), PDEA, CHED/TESDA duties, 10 Ways to Say No, <strong>S.T.R.O.N.G.</strong></p>`}
-                ],
+                slides: window.lessonSourceSlides.drug,
                 questions: [
                     {q:'What are drugs?', options:['Drugs are chemicals that change the way our bodies function. Psychoactive substances affect the central nervous system and make us see, think, feel and behave differently.','Only illegal substances with no medical use.','Only vitamins and food supplements.','Food items that provide nutrition only.'], answer:0},
                     {q:'How is Shabu (Shabs, S, bato) used and what are its effects?', options:['Snorted — Tachycardia, hypertension, atrial and ventricular arrhythmias, chest pain, accelerated atherosclerosis, dyspnea, edema, abscess, cellulitis, seizures, hypotension, dental caries, periodontal abscess (meth mouth), pupillary dilatation.','Only eaten orally with no effects.','Only applied topically to skin with no systemic effects.','Only used as suppository with no adverse effects.'], answer:0},
@@ -1732,14 +1727,7 @@
             },
             'drrm': {
                 title: 'Disaster Risk Reduction & Management',
-                slides: [
-                    {title:'Overview & RA 10121', html:`<p>PH most hazard-prone; cost rising due to population/urbanization/climate. <strong>RA 10121</strong> strengthens DRRM system (Arroyo May 27).</p>`},
-                    {title:'Definitions', html:`<ul><li><strong>Hazard:</strong> threat</li><li><strong>Risk:</strong> likelihood</li><li><strong>Vulnerability:</strong> susceptibility</li><li><strong>Disaster:</strong> serious disruption exceeding coping</li><li><strong>Exposure:</strong> elements affected</li></ul>`},
-                    {title:'NDPP Objectives', html:`<p>Goal: avert loss of lives/assets. 5 objectives: awareness, equip communities, increase DRRM/CCA capacity, develop policies, strengthen partnership.</p>`},
-                    {title:'Cycle & Priorities', html:`<p><strong>Cycle:</strong> Prepare→Respond→Recover→Mitigate...<br><strong>5 Priorities:</strong> Governance, Risk Assessment, Knowledge, Vulnerability Reduction, Preparedness.</p>`},
-                    {title:'Natural vs Human-Made', html:`<p><strong>Natural:</strong> earthquakes, floods, storms<br><strong>Human-Made:</strong> terrorism, war, criminality. Youth: information, be ready, CBDRRM.</p>`},
-                    {title:'How Prepared Are You?', html:`<ol><li>Identify risk</li><li>Develop plan</li><li>Implement/train</li><li>Be leader</li></ol><p>Activity: 3-min video rubrics Content 40% etc.</p>`}
-                ],
+                slides: window.lessonSourceSlides.drrm,
                 questions: [
                     {q:'RA 10121 is?', options:['DRRM Act','NSTP Act','Clean Air','Drug Act'], answer:0},
                     {q:'What is a Hazard?', options:['A situation that poses a level of threat to life, health, property or environment.','The likelihood of harm, loss, disaster.','Elements affected by hazard.','A school subject.'], answer:0},
@@ -1751,14 +1739,7 @@
             },
             'envi': {
                 title: 'Environmental Protection',
-                slides: [
-                    {title:'Seven Environmental Principles', html:`<ol><li>Everything is connected to everything else.</li><li>All forms of life are important.</li><li>Everything must go somewhere.</li><li>Ours is a finite earth.</li><li>Nature knows best.</li><li>Nature is beautiful and we are stewards of God's creation.</li><li>Everything changes.</li></ol>`},
-                    {title:'Environmental Education', html:`<p>Environmental education teaches how natural environments function and how people can manage behavior and ecosystems sustainably. It develops knowledge, attitudes, motivation, skills, and responsible action.</p><p>Environmental protection is the sustainable management of natural resources so present and future generations can benefit.</p>`},
-                    {title:'Philippine Agenda 21', html:`<p>PA 21 is the Philippines' program of action for a sustainable future. It was adopted at the 1992 Earth Summit in Rio de Janeiro as the country's commitment to UNCED.</p><p>It includes the Principles of Unity, the Action Agenda, and Implementation Strategies.</p>`},
-                    {title:'Sustainable Development', html:`<p>PA 21 envisions a better quality of life through a just, moral, creative, spiritual, democratic, and caring society living within nature's carrying capacity.</p><p>Its five goal elements are poverty reduction, social equity, empowerment and governance, peace and solidarity, and ecological integrity.</p>`},
-                    {title:'Management and Related Laws', html:`<p><strong>Principles:</strong> Polluter Pays, User Pays, Precautionary, Responsibility, Effectiveness and Efficiency, Proportionality, and Participation.</p><p>Key references include CHED MO 33 s.2009, RA 9512, RA 9275, RA 9175, Environmental Protection and Management Act No. 10 of 2019, RA 9147, RA 9003, and RA 8749.</p>`},
-                    {title:'Waste and Environmental Rights', html:`<p><strong>Hazardous waste:</strong> ignitable, corrosive, reactive, or toxic. Its management protects the environment, improves public health, and conserves energy.</p><p><strong>7 Rs listed:</strong> reuse, reduce, reduce, reuse, repair, regift, recycle. Citizens have rights to clean air, participation, information, public records, and legal action.</p>`}
-                ],
+                slides: window.lessonSourceSlides.envi,
                 questions: [
                     {q:'How many environmental principles are there (Society for Conservation of Philippine Wetlands)?', options:['Five principles','Six principles','Seven principles: Everything connected, All life important, Everything must go somewhere, Finite earth, Nature knows best, Stewards of creation, Everything changes','Eight principles'], answer:2},
                     {q:'Where was PA 21 adopted?', options:['The 1992 Earth Summit in Rio de Janeiro','A Manila school conference','The Paris climate meeting','Tokyo'], answer:0},
@@ -1770,14 +1751,7 @@
             },
             'security': {
                 title: 'National Security',
-                slides: [
-                    {title:'A New Era of Security', html:`<p>Security once focused on protection from organized violence. Modern human security emphasizes people, not just territory; individuals, not just nations; and development, not just arms.</p><p>Security also includes economic, political, social, and environmental conditions that help people survive and thrive.</p>`},
-                    {title:'National Security Council', html:`<p>National security protects and enhances territorial integrity, sovereignty, people's way of life, and well-being.</p><p>The NSC is the President-chaired principal advisory body for coordinating national-security plans and policies. It was created through EO 330 on July 1, 1950, during the Quirino Administration, and reorganized by EO 115 in 1986.</p>`},
-                    {title:'Seven Fundamental Elements', html:`<ol><li>Moral-spiritual consensus</li><li>Cultural cohesiveness</li><li>Economic solidarity</li><li>Socio-political stability</li><li>Ecological balance</li><li>Territorial integrity</li><li>International harmony</li></ol>`},
-                    {title:'Internal and External Threats', html:`<p><strong>Internal:</strong> MILF/ASG, CPP/NPA/NDF, organized crime, poverty, economic sabotage, graft, calamities, and environmental degradation.</p><p><strong>External:</strong> Spratly disputes, smuggling, illegal migration, WMD proliferation, transnational crime, natural disasters, environmental issues, and cybercrime.</p>`},
-                    {title:'Types of Threats', html:`<p>Threats may include rebellion or insurrection, terrorism, murder, kidnapping or serious illegal detention, hijacking or highway robbery, and crimes involving destruction.</p><p>Proper citizenship and positive action can help create a peaceful environment.</p>`},
-                    {title:'Role of the Youth', html:`<p>Youth can know their rights, learn local issues, speak responsibly, network, spread information, join campaigns, host youth summits, use creativity, create organizations, and be an inspiration.</p>`}
-                ],
+                slides: window.lessonSourceSlides.security,
                 questions: [
                     {q:'When was the National Security Council created?', options:['Created during the Quirino Administration through Executive Order (EO) No. 330, dated 01 July 1950 (reorganized by EO No. 115, series of 1986).','Reestablished in 1999 by President Estrada.','Created in 2002 under RA 9165.','Created in 1968 by McNamara.'], answer:0},
                     {q:'Who chairs NSC?', options:['President','Vice President','Chief Justice','Senate President'], answer:0},
@@ -1800,14 +1774,16 @@
             const totalLessons = available.length;
             let completedCount = 0;
             available.forEach(k=>{
+                const deck = lessonDecks[k];
+                const required = deck.slides.length + deck.questions.length;
                 const prog = JSON.parse(localStorage.getItem('lessonProg_'+k) || '{"done":0}');
-                if(prog.done>=12) completedCount++;
+                if(prog.done>=required) completedCount++;
             });
             const linePct = totalLessons? Math.round((completedCount/totalLessons)*100) : 0;
             body.innerHTML = `
                 <div class="roadmap-intro" style="text-align:center;">
                     <div style="display:inline-block;background:#7de86a;border:1.5px solid #000;border-radius:999px;padding:4px 12px;font-family:Chicago,sans-serif;font-size:11px;font-weight:800;box-shadow:0 3px 0 #000;">LESSON ROADMAP</div>
-                    <div style="margin-top:8px;font-size:10px;opacity:0.8;">Duolingo-style path — follow the trail, complete each button (12 slides = 6 lessons + 6 questions)</div>
+                    <div style="margin-top:8px;font-size:10px;opacity:0.8;">Duolingo-style path — complete each module's lesson slides and six-question check</div>
                     <div style="margin-top:6px;font-size:10px;"><span style="background:#000;color:#fff;padding:1px 6px;border-radius:999px;">${completedCount}/${totalLessons} completed</span> &nbsp; Filter: ${currentCategory==='all'?'All Modules':currentCategory}</div>
                 </div>
                 <div class="duo-path-wrap">
@@ -1816,19 +1792,20 @@
                         <div class="duo-line"><div class="duo-line-progress" style="height:${linePct}%"></div></div>
                         ${available.map((key, idx)=>{
                             const deck = lessonDecks[key];
+                            const required = deck.slides.length + deck.questions.length;
                             const prog = JSON.parse(localStorage.getItem('lessonProg_'+key) || '{"done":0,"score":0}');
                             const done = prog.done||0;
-                            const isCompleted = done>=12;
+                            const isCompleted = done>=required;
                             const isCurrent = idx===completedCount && !isCompleted;
                             const isLocked = false;
                             const state = isCompleted ? 'completed' : isCurrent ? 'current' : isLocked ? 'locked' : 'available';
                             const wiggle = idx%3===0 ? 'wiggle-left' : idx%3===1 ? 'wiggle-right' : 'wiggle-center';
                             const icons = { 'vision-mission':'🎯','core-values':'💎','officials':'🏛️','citizenship':'🇵🇭','nstp-basics':'📜','drug':'💊','drrm':'🌪️','envi':'🌱','security':'🛡️'};
-                            const pct = Math.round((done/12)*100);
+                            const pct = Math.min(100,Math.round((done/required)*100));
                             return `<div class="duo-node ${state} ${wiggle}" data-key="${key}" id="${idx===0?'duo-first':''}" title="${labels[key]} - ${pct}%">
                                 <span>${icons[key]||'📘'}</span>
                                 ${isCompleted?'<span class="node-check">✓</span>':''}
-                                <div class="duo-label">${labels[key]}<small>${deck.slides.length}+${deck.questions.length}=12 • ${pct}%</small></div>
+                                <div class="duo-label">${labels[key]}<br><small>${deck.slides.length} slides + ${deck.questions.length} questions • ${pct}%</small></div>
                             </div>`;
                         }).join('')}
                         <div style="margin-top:12px; z-index:2; width:64px; height:52px; background:#d6b48c; border:3px solid #000; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 5px 0 #000;">🏆</div>
