@@ -689,7 +689,8 @@ https://www.un.org/en/about-us/universal-declaration-of-human-rights` }
     Internal threats. In its internal aspect, national security relates to the defense of the nation's government against hostile local elements seeking its replacement with their own government. In this sense, national security refers to the measures aimed at countering domestic or internal challenges to the existing political and socio-economic order. Our national security concern is infused with four important dimensions. Internal threats to our national security make up the first dimension. Moro Islamic Liberation Front (MILF) and Abu Sayyaf Group (ASG); Communist Party of the Philippines/New People's Army/National Democratic Front (CPP/NPA/NDF); organized crime; grave incidence of poverty; economic sabotage; graft and corruption; severe calamities; persistent environment degradation.
 
     External threats. In its external aspects, national security is concerned with safeguarding the state against outside or foreign forces, pressures, or influence designed to conquer it or undermine its sovereignty, or placing it under the domination or control of some foreign state or states. The growing uncertainties that lie in the regional and global milieu make up the second dimension of our national security concerns even as threat of external aggression against our country remains in the remote horizon. Multilateral dispute over the Spratly Islands.` },
-            { title: 'National Security - Pages 3-4', text: `External threats continued
+            { title: 'National Security - Pages 3-4', text: `Page 3
+External threats continued
     Smuggling of firearms and contraband, illegal migration and the occasional movement of foreign terrorists through the porous borders of our southwestern frontier.
     Lingering effects of the currency crisis affecting the countries within the Association of Southeast Asian Nations (ASEAN).
     Serious economic disparity between rich and poor nations.
@@ -710,7 +711,10 @@ https://www.un.org/en/about-us/universal-declaration-of-human-rights` }
 
     Role of Youth to National Threats
     Know your rights. Read up, get informed and practice your right. The youth can maximize their rights if they are well-informed. The existing rights are only of value to the youth if they are understood, observed, and used.
-    Learn about local issues. What are the concerns plaguing your community? How are the concerns affecting you and your immediate environment? Knowing the problem can lead to possible solutions and the youth's role in the grand scheme of things.
+        Learn about local issues. What are the concerns plaguing your community? How are the concerns affecting you and your immediate environment? Knowing the
+
+        Page 4
+        problem can lead to possible solutions and the youth's role in the grand scheme of things.
     Speak out. Do not be afraid to speak your mind either online, through social media, and offline, gatherings and meetings. Be assertive and express your interests. Someone is bound to read or to listen to it. However, be responsible for what you air and support it with facts. Also, respect the views of others regardless if they agree or disagree with you.
     Network. There is strength in numbers. Reach out to them and learn their efforts and initiatives. It could pave the way to bigger things for you.
     Spread the word. Talk to your friends and family about the concerns and issues you see as important. You can provide a voice to unaddressed issues, educate, and influence the people around you.
@@ -737,8 +741,21 @@ https://www.un.org/en/about-us/universal-declaration-of-human-rights` }
         return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    window.lessonSourceSlides = Object.fromEntries(Object.entries(sourcePages).map(([key, pages]) => [key, pages.map(page => ({
-        title: page.title,
-        html: `<div class="source-text">${escapeHtml(page.text).replace(/\n/g, '<br>')}</div>`
-    }))]));
+        function makeSlide(title, text) {
+                return { title, html: `<div class="source-text">${escapeHtml(text).replace(/\n/g, '<br>')}</div>` };
+        }
+
+        window.lessonSourceSlides = Object.fromEntries(Object.entries(sourcePages).map(([key, pages]) => [key, pages.flatMap(page => {
+                const markers = [...page.text.matchAll(/^[ \t]*Page (\d+)[ \t]*$/gm)];
+                if (!markers.length) return [makeSlide(page.title, page.text)];
+
+                return markers.map((marker, index) => {
+                        const textStart = marker.index + marker[0].length;
+                        const textEnd = markers[index + 1]?.index ?? page.text.length;
+                        const header = index === 0 ? page.text.slice(0, marker.index) : '';
+                        const text = `${header}${page.text.slice(textStart, textEnd)}`.trim();
+                        const sectionTitle = page.title.replace(/\s+-\s+Pages? .*/, '');
+                        return makeSlide(`${sectionTitle} - Page ${marker[1]}`, text);
+                });
+        })]));
 })();
