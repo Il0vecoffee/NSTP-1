@@ -332,6 +332,7 @@
         .known-btns{display:flex;gap:8px;justify-content:center;margin-top:10px}
         .deck-nav{display:flex;gap:8px;justify-content:center;margin-top:12px}
         /* Quiz */
+        .quiz-count{font-size:12px;font-weight:700;color:#555;margin-bottom:8px;}
         .quiz-question{font-size:13px;font-weight:700;margin-bottom:10px;line-height:1.4}
         .options{display:flex;flex-direction:column;gap:7px}
         .option{
@@ -2331,7 +2332,7 @@
             }
             const item = quizPool[quizIndex];
             quizAnswered = false;
-            document.getElementById('quiz-body').innerHTML = `<div class="quiz-card"><div class="quiz-question">${item.q}</div><div class="options">${item.options.map((o, i) => `<button class="option" data-idx="${i}">${o}</button>`).join('')}</div><button class="btn ghost" id="q-skip" style="margin-top:10px;">Skip</button></div>`;
+            document.getElementById('quiz-body').innerHTML = `<div class="quiz-card"><div class="quiz-count">Question ${quizIndex + 1} of ${quizPool.length}</div><div class="quiz-question">${item.q}</div><div class="options">${item.options.map((o, i) => `<button class="option" data-idx="${i}">${o}</button>`).join('')}</div><button class="btn ghost" id="q-skip" style="margin-top:10px;">Skip</button></div>`;
             document.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => selectQ(parseInt(btn.dataset.idx), item)));
             document.getElementById('q-skip').addEventListener('click', () => { quizIndex++; renderQuiz(); });
         }
@@ -2389,7 +2390,7 @@
             }
             const item = lqPool[lqIndex];
             lqAnswered = false;
-            document.getElementById('longquiz-body').innerHTML = `<div class="quiz-card"><div class="quiz-question">${item.q}</div><div class="options">${item.options.map((o, i) => `<button class="option" data-idx="${i}">${o}</button>`).join('')}</div></div>`;
+            document.getElementById('longquiz-body').innerHTML = `<div class="quiz-card"><div class="quiz-count">Question ${lqIndex + 1} of ${lqPool.length}</div><div class="quiz-question">${item.q}</div><div class="options">${item.options.map((o, i) => `<button class="option" data-idx="${i}">${o}</button>`).join('')}</div></div>`;
             document.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => { if (lqAnswered) return; lqAnswered = true; const idx = parseInt(btn.dataset.idx); document.querySelectorAll('.option').forEach((b, i) => { b.disabled = true; if (i === item.answer) b.classList.add('correct'); if (i === idx && i !== item.answer) b.classList.add('wrong'); }); if (idx === item.answer) lqScore++; setTimeout(() => { lqIndex++; renderLongQuiz(); }, 1500); }));
         }
 
