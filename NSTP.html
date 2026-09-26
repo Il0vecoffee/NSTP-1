@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -659,7 +659,7 @@
         #view-lesson .slide-nav{background:#d8d8d8;border-top:1px solid #111;}
         #view-lesson .btn.primary,#view-lesson .btn.ghost,#view-lesson .btn.danger{background:#fff !important;color:#111;border:1px solid #111;border-radius:0;box-shadow:2px 2px 0 #111;}
         #view-lesson .slide-q-option{background:#fff;color:#111;border:1px solid #111;border-radius:0;box-shadow:1px 1px 0 #111;}
-        #view-lesson .slide-q-option:hover,#view-lesson .slide-q-option.correct,#view-lesson .slide-q-option.wrong{background:#d8d8d8 !important;border-color:#111;color:#111;}
+        #view-lesson .slide-q-option:hover{background:#d8d8d8 !important;border-color:#111;color:#111;}
         footer{background:repeating-linear-gradient(to bottom,#fff 0 2px,#ccc 2px 4px);color:#111;border-top:1px solid #111;}
         .quiz-select-box,.quiz-card{background:#fff;border:1px solid #111;border-radius:0;box-shadow:2px 2px 0 #111;color:#111;}
         .quiz-select-box h3{color:#111 !important;font-size:20px;}
@@ -670,7 +670,7 @@
         .qcount{background:#111;color:#fff;border-radius:0;}
         .quiz-question{font-size:21px;line-height:1.4;}
         .option{background:#fff;border:1px solid #111;border-radius:0;box-shadow:1px 1px 0 #111;color:#111;}
-        .option:hover,.option.correct,.option.wrong{background:#d8d8d8 !important;border-color:#111;color:#111;}
+        .option:hover{background:#d8d8d8 !important;border-color:#111;color:#111;}
         .quiz-select-box .btn,.quiz-card .btn{background:#fff !important;color:#111;border:1px solid #111;border-radius:0;box-shadow:2px 2px 0 #111;}
         #view-quiz,#view-longquiz,#quiz-body,#longquiz-body{height:100%;}
         #view-quiz .quiz-card,#view-longquiz .quiz-card{min-height:calc(100% - 4px);margin:0;display:flex;flex-direction:column;}
@@ -690,11 +690,25 @@
         .id-def{background:#f5f5f5;border:1px solid #111;border-radius:0;color:#111;font-size:15px;}
         .id-prompt{color:#111;font-size:14px;}
         .id-option{background:#fff;border:1px solid #111;border-radius:0;box-shadow:1px 1px 0 #111;color:#111;}
-        .id-option:hover,.id-option.correct,.id-option.wrong{background:#d8d8d8;border-color:#111;color:#111;}
+        .id-option:hover{background:#d8d8d8;border-color:#111;color:#111;}
         .id-card .btn{background:#fff !important;color:#111;border:1px solid #111;border-radius:0;box-shadow:2px 2px 0 #111;}
         html,body{overflow:hidden !important;}
         .window-wrap{left:0;top:0;right:0;bottom:0;}
         .os-window{top:0;right:0;bottom:0;max-width:none !important;}
+        @media(max-width:600px){
+            .menubar{height:32px;padding:0 8px;overflow:hidden;}
+            .menubar-left{min-width:0;flex:1;overflow:hidden;white-space:nowrap;gap:0;}
+            .menubar-left > *{padding:0;flex:0 0 auto;white-space:nowrap;}
+            .menubar-left .apple,.menubar-left > span:not(.apple){display:none;}
+            .menubar-left b{max-width:calc(100vw - 76px);overflow:hidden;text-overflow:ellipsis;font-size:12px;}
+            .menubar-right{flex:0 0 auto;margin-left:8px;}
+            .desktop{height:calc(100vh - 32px - 28px);padding:10px 8px 6px;}
+            .os-window:not(.maximized):not(.fullscreen-active){left:0 !important;top:0 !important;right:0 !important;bottom:0 !important;width:100% !important;height:100% !important;min-width:0 !important;min-height:0 !important;max-width:none !important;max-height:none !important;transform:none !important;}
+            .window-content{max-height:none !important;}
+            footer{height:28px;padding:7px 4px;line-height:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        }
+        .option.correct,.id-option.correct,.slide-q-option.correct,.match-item.matched{background:#d7f5d7 !important;border-color:#238636 !important;color:#14532d !important;}
+        .option.wrong,.id-option.wrong,.slide-q-option.wrong,.match-item.wrong{background:#ffe0e0 !important;border-color:#d1242f !important;color:#7f1d1d !important;}
     </style>
 </head>
 <body>
@@ -799,9 +813,9 @@
             // MODULE 1
             { cat: "NSTP", term: "TSU Vision", def: "A globally competitive university recognized for excellence in sciences and emerging technologies." },
             { cat: "NSTP", term: "TSU Mission", def: "TSU shall develop highly competitive and empowered human resources fostering responsive global education, future-proof research culture, inclusive and relevant extension programs, and sustainable production projects." },
-            { cat: "NSTP", term: "TSU Core Value â€” T", def: "Truth in words, action and character." },
-            { cat: "NSTP", term: "TSU Core Value â€” S", def: "Service with excellence and compassion." },
-            { cat: "NSTP", term: "TSU Core Value â€” U", def: "Unity in diversity." },
+            { cat: "NSTP", term: "TSU Core Value - T", def: "Truth in words, action and character." },
+            { cat: "NSTP", term: "TSU Core Value - S", def: "Service with excellence and compassion." },
+            { cat: "NSTP", term: "TSU Core Value - U", def: "Unity in diversity." },
             { cat: "NSTP", term: "RA 9163", def: "NSTP Act of 2001. Signed by President Arroyo on Jan 23, 2002." },
             { cat: "NSTP", term: "ROTC", def: "Reserve Officers' Training Corps." },
             { cat: "NSTP", term: "CWTS", def: "Civic Welfare Training Service." },
@@ -820,11 +834,11 @@
             // MODULE 2
             { cat: "DRUG", term: "Drugs", def: "Chemicals that change the way our bodies function." },
             { cat: "DRUG", term: "Drug Abuse", def: "Use of a substance resulting in physical, mental, or social impairment." },
-            { cat: "DRUG", term: "Drug Routes â€” Ingestion", def: "Taking drugs orally into the digestive system." },
-            { cat: "DRUG", term: "Drug Routes â€” Inhalation", def: "Breathing in drug vapors or smoke." },
-            { cat: "DRUG", term: "Drug Routes â€” Injection", def: "Administering drugs via needle." },
-            { cat: "DRUG", term: "Drug Routes â€” Suppository", def: "Inserting drugs into the rectum or vagina." },
-            { cat: "DRUG", term: "Drug Routes â€” Topical", def: "Applying drugs to the skin or mucous membranes." },
+            { cat: "DRUG", term: "Drug Routes - Ingestion", def: "Taking drugs orally into the digestive system." },
+            { cat: "DRUG", term: "Drug Routes - Inhalation", def: "Breathing in drug vapors or smoke." },
+            { cat: "DRUG", term: "Drug Routes - Injection", def: "Administering drugs via needle." },
+            { cat: "DRUG", term: "Drug Routes - Suppository", def: "Inserting drugs into the rectum or vagina." },
+            { cat: "DRUG", term: "Drug Routes - Topical", def: "Applying drugs to the skin or mucous membranes." },
             { cat: "DRUG", term: "Why do people use drugs?", def: "To get some benefit: wake up, relax, relieve pain, have fun." },
             { cat: "DRUG", term: "Common Signs of Drug Use", def: "Attitude changes, poor appearance, stealing, associating with users." },
             { cat: "DRUG", term: "Effects on the Person", def: "Medical deterioration, depression, poor family relations." },
@@ -843,7 +857,7 @@
             { cat: "DRUG", term: "Shabu", def: "Snorted; tachycardia, hypertension, arrhythmias, 'meth mouth'." },
             { cat: "DRUG", term: "Benzodiazepines", def: "Orally; euphoria, drowsiness, stupor, delayed reflexes." },
             { cat: "DRUG", term: "R.A. 9165", def: "Comprehensive Dangerous Drugs Act of 2002." },
-            { cat: "DRUG", term: "PDEA", def: "Philippine Drug Enforcement Agency â€” lead anti-drug enforcement." },
+            { cat: "DRUG", term: "PDEA", def: "Philippine Drug Enforcement Agency - lead anti-drug enforcement." },
             { cat: "DRUG", term: "CHED", def: "Integrates drug prevention into higher education." },
             { cat: "DRUG", term: "TESDA", def: "Integrates drug prevention into tech-voc courses." },
             { cat: "DRUG", term: "S.T.R.O.N.G.", def: "Steadfast, Trustworthy, Respectable, Open-minded, Noble, Gustly." },
@@ -855,9 +869,9 @@
             { cat: "NDRRM", term: "Disaster", def: "A serious disruption exceeding the ability to cope using own resources." },
             { cat: "NDRRM", term: "Exposure", def: "Elements (people, property, systems) affected by a hazard." },
             { cat: "NDRRM", term: "R.A. 10121", def: "Philippine DRRM Act, signed by President Arroyo on May 27." },
-            { cat: "NDRRM", term: "DRRM Cycle", def: "Prevention & Mitigation â†’ Preparedness â†’ Disaster â†’ Response â†’ Recovery." },
-            { cat: "NDRRM", term: "NDRRMC", def: "National Disaster Risk Reduction & Management Council â€” overseeing." },
-            { cat: "NDRRM", term: "NDRRMA", def: "National Disaster Risk Reduction & Management Authority â€” implementing." },
+            { cat: "NDRRM", term: "DRRM Cycle", def: "Prevention & Mitigation  Preparedness  Disaster  Response  Recovery." },
+            { cat: "NDRRM", term: "NDRRMC", def: "National Disaster Risk Reduction & Management Council - overseeing." },
+            { cat: "NDRRM", term: "NDRRMA", def: "National Disaster Risk Reduction & Management Authority - implementing." },
             { cat: "NDRRM", term: "Natural Disaster", def: "Major adverse event from natural processes (earthquakes, floods)." },
             { cat: "NDRRM", term: "Human-Made Disaster", def: "Disaster involving human intent or negligence (terrorism, war)." },
             { cat: "NDRRM", term: "Leading Natural Disaster", def: "Storms (51.3%) followed by floods (31.9%)." },
@@ -870,14 +884,14 @@
             { cat: "NDRRM", term: "Youth Role in DRR", def: "Information dissemination, prepare a plan, know the risk." },
 
             // MODULE 4
-            { cat: "ENVI", term: "Principle 1 â€” Connected", def: "Everything is connected to everything else." },
-            { cat: "ENVI", term: "Principle 2 â€” Life Important", def: "All forms of life are important (biodiversity)." },
-            { cat: "ENVI", term: "Principle 3 â€” Goes Somewhere", def: "Everything must go somewhere (pollution)." },
-            { cat: "ENVI", term: "Principle 4 â€” Finite Earth", def: "Ours is a finite earth (need for conservation)." },
-            { cat: "ENVI", term: "Principle 5 â€” Nature Knows Best", def: "Nature knows best (ecological technology)." },
-            { cat: "ENVI", term: "Principle 6 â€” Stewards", def: "We are stewards of God's creation." },
-            { cat: "ENVI", term: "Principle 7 â€” Changes", def: "Everything changes." },
-            { cat: "ENVI", term: "PA 21", def: "Philippine Agenda 21 â€” program for sustainable future." },
+            { cat: "ENVI", term: "Principle 1 - Connected", def: "Everything is connected to everything else." },
+            { cat: "ENVI", term: "Principle 2 - Life Important", def: "All forms of life are important (biodiversity)." },
+            { cat: "ENVI", term: "Principle 3 - Goes Somewhere", def: "Everything must go somewhere (pollution)." },
+            { cat: "ENVI", term: "Principle 4 - Finite Earth", def: "Ours is a finite earth (need for conservation)." },
+            { cat: "ENVI", term: "Principle 5 - Nature Knows Best", def: "Nature knows best (ecological technology)." },
+            { cat: "ENVI", term: "Principle 6 - Stewards", def: "We are stewards of God's creation." },
+            { cat: "ENVI", term: "Principle 7 - Changes", def: "Everything changes." },
+            { cat: "ENVI", term: "PA 21", def: "Philippine Agenda 21 - program for sustainable future." },
             { cat: "ENVI", term: "PCSD", def: "Philippine Council for Sustainable Development." },
             { cat: "ENVI", term: "PPP", def: "Polluter Pays Principle." },
             { cat: "ENVI", term: "UPP", def: "User Pays Principle." },
@@ -900,7 +914,7 @@
             { cat: "SEC", term: "McNamara (1968)", def: "Security includes promoting economic, political, and social development." },
             { cat: "SEC", term: "New Era Security", def: "a) People, not territory. b) Individuals, not nations. c) Development, not arms." },
             { cat: "SEC", term: "National Security", def: "State wherein values (territorial integrity, sovereignty) are protected." },
-            { cat: "SEC", term: "NSC", def: "National Security Council â€” chaired by President." },
+            { cat: "SEC", term: "NSC", def: "National Security Council - chaired by President." },
             { cat: "SEC", term: "NSC Creation", def: "Created 01 July 1950 via EO 330." },
             { cat: "SEC", term: "Moral-spiritual consensus", def: "National vision inspired by patriotism." },
             { cat: "SEC", term: "Cultural cohesiveness", def: "Common values grounded on high moral standards." },
@@ -916,9 +930,9 @@
             { cat: "SEC", term: "Murder", def: "Unlawful killing of another human being with intent." },
             { cat: "SEC", term: "Kidnapping", def: "Taking away a person against their will, usually for ransom." },
             { cat: "SEC", term: "Hijacking", def: "Taking property by force or threat of force." },
-            { cat: "SEC", term: "Youth Role â€” Know rights", def: "Read up, get informed, practice your rights." },
-            { cat: "SEC", term: "Youth Role â€” Speak out", def: "Be assertive, express interests, support with facts." },
-            { cat: "SEC", term: "Youth Role â€” Be inspiration", def: "Believe in yourself; passionate youth will change the world." }
+            { cat: "SEC", term: "Youth Role - Know rights", def: "Read up, get informed, practice your rights." },
+            { cat: "SEC", term: "Youth Role - Speak out", def: "Be assertive, express interests, support with facts." },
+            { cat: "SEC", term: "Youth Role - Be inspiration", def: "Believe in yourself; passionate youth will change the world." }
         ];
 
         flashcardData.forEach((c, i) => { c.id = c.cat + '-fc-' + i; });
@@ -1293,19 +1307,19 @@
                     title: "TSU Vision, Mission, and Core Values",
                     content: `
                         <div class="highlight-box">
-                            <h3>ðŸŽ¯ Vision</h3>
+                            <h3> Vision</h3>
                             <p>"A globally competitive university recognized for excellence in sciences and emerging technologies."</p>
                         </div>
                         <div class="highlight-box" style="border-left-color:var(--green);">
-                            <h3>ðŸš€ Mission</h3>
+                            <h3> Mission</h3>
                             <p>"TSU shall develop highly competitive and empowered human resources fostering responsive global education, future-proof research culture, inclusive and relevant extension programs, and sustainable production projects."</p>
                         </div>
                         <div class="highlight-box" style="border-left-color:var(--yellow);">
-                            <h3>ðŸ’Ž Core Values (T-S-U)</h3>
+                            <h3> Core Values (T-S-U)</h3>
                             <ul>
-                                <li><strong>T</strong> â€” Truth in words, action and character</li>
-                                <li><strong>S</strong> â€” Service with excellence and compassion</li>
-                                <li><strong>U</strong> â€” Unity in diversity</li>
+                                <li><strong>T</strong> - Truth in words, action and character</li>
+                                <li><strong>S</strong> - Service with excellence and compassion</li>
+                                <li><strong>U</strong> - Unity in diversity</li>
                             </ul>
                         </div>
                     `
@@ -1313,18 +1327,18 @@
                 'core-values': {
                     title: "TSU Core Values in Detail",
                     content: `
-                        <h3>ðŸ’Ž T â€” Truth</h3>
-                        <p>"Truth in words, action and character" â€” This core value emphasizes integrity, honesty, and authenticity in everything we do.</p>
-                        <h3>ðŸ’Ž S â€” Service</h3>
-                        <p>"Service with excellence and compassion" â€” This core value calls for dedication to serving others with the highest quality and genuine care.</p>
-                        <h3>ðŸ’Ž U â€” Unity</h3>
-                        <p>"Unity in diversity" â€” This core value celebrates the strength found in our differences.</p>
+                        <h3> T - Truth</h3>
+                        <p>"Truth in words, action and character" - This core value emphasizes integrity, honesty, and authenticity in everything we do.</p>
+                        <h3> S - Service</h3>
+                        <p>"Service with excellence and compassion" - This core value calls for dedication to serving others with the highest quality and genuine care.</p>
+                        <h3> U - Unity</h3>
+                        <p>"Unity in diversity" - This core value celebrates the strength found in our differences.</p>
                     `
                 },
                 'officials': {
                     title: "TSU Key Officials",
                     content: `
-                        <h3>ðŸ›ï¸ University Leadership</h3>
+                        <h3> University Leadership</h3>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
                             <div style="background:var(--grey);border:3px solid var(--ink);border-radius:10px;padding:10px;"><strong>DR. JASPER JAY N. MENDOZA</strong><br><span style="font-size:0.8rem;">University President</span></div>
                             <div style="background:var(--grey);border:3px solid var(--ink);border-radius:10px;padding:10px;"><strong>DR. BRENDALYN A. MANZANO</strong><br><span style="font-size:0.8rem;">VP for Academic Affairs</span></div>
@@ -1338,13 +1352,13 @@
                 'citizenship': {
                     title: "Citizenship Training",
                     content: `
-                        <h3>ðŸ‡µðŸ‡­ The 1987 Philippine Constitution</h3>
+                        <h3> The 1987 Philippine Constitution</h3>
                         <p>The <strong>1987 Philippine Constitution</strong> is the supreme law of the Philippines.</p>
                         <ul>
                             <li><strong>Preamble:</strong> States the goals and aspirations of the Filipino people</li>
-                            <li><strong>Article III â€” Bill of Rights:</strong> Guarantees fundamental rights and freedoms</li>
+                            <li><strong>Article III - Bill of Rights:</strong> Guarantees fundamental rights and freedoms</li>
                         </ul>
-                        <h3>ðŸ›¡ï¸ The Bill of Rights (Article III)</h3>
+                        <h3> The Bill of Rights (Article III)</h3>
                         <ul>
                             <li>Right to Life, Liberty, and Property</li>
                             <li>Freedom of Speech and Expression</li>
@@ -1353,39 +1367,39 @@
                             <li>Right to Due Process</li>
                             <li>Right to Equal Protection</li>
                         </ul>
-                        <h3>ðŸ‘¤ Rights and Responsibilities</h3>
+                        <h3> Rights and Responsibilities</h3>
                         <ul>
                             <li>Right to Vote (Suffrage)</li>
                             <li>Duty to be Loyal to the Republic</li>
                             <li>Duty to Obey Laws</li>
                             <li>Civic Responsibility</li>
                         </ul>
-                        <h3>ðŸ›ï¸ NSTP and Citizenship</h3>
+                        <h3> NSTP and Citizenship</h3>
                         <ul>
-                            <li><strong>Pagkamaka-Diyos</strong> â€” Faith in Almighty, Respect for Life, Order, Work, Family</li>
-                            <li><strong>Pagkamaka-Tao</strong> â€” Love, Freedom, Peace, Truth, Justice</li>
-                            <li><strong>Pagkamaka-Kalikasan</strong> â€” Concern for the environment</li>
-                            <li><strong>Pagkamaka-Bansa</strong> â€” Unity, Equality, Respect for law, Patriotism, Common good</li>
+                            <li><strong>Pagkamaka-Diyos</strong> - Faith in Almighty, Respect for Life, Order, Work, Family</li>
+                            <li><strong>Pagkamaka-Tao</strong> - Love, Freedom, Peace, Truth, Justice</li>
+                            <li><strong>Pagkamaka-Kalikasan</strong> - Concern for the environment</li>
+                            <li><strong>Pagkamaka-Bansa</strong> - Unity, Equality, Respect for law, Patriotism, Common good</li>
                         </ul>
                     `
                 },
                 'nstp-basics': {
                     title: "NSTP Fundamentals",
                     content: `
-                        <h3>ðŸ“œ What is NSTP?</h3>
+                        <h3> What is NSTP?</h3>
                         <p>The <strong>National Service Training Program (NSTP)</strong> is established under <strong>RA 9163</strong> (NSTP Act of 2001) signed by President Arroyo.</p>
-                        <h3>ðŸŽ¯ NSTP Components</h3>
+                        <h3> NSTP Components</h3>
                         <ul>
-                            <li><strong>ROTC</strong> â€” Reserve Officers' Training Corps</li>
-                            <li><strong>CWTS</strong> â€” Civic Welfare Training Service</li>
-                            <li><strong>LTS</strong> â€” Literacy Training Service</li>
+                            <li><strong>ROTC</strong> - Reserve Officers' Training Corps</li>
+                            <li><strong>CWTS</strong> - Civic Welfare Training Service</li>
+                            <li><strong>LTS</strong> - Literacy Training Service</li>
                         </ul>
-                        <h3>ðŸ“‹ Key Facts</h3>
+                        <h3> Key Facts</h3>
                         <ul>
-                            <li>All incoming freshmen SY 2002â€“2003 are covered</li>
-                            <li>2 semesters, 54â€“90 hours/semester = 6 units total</li>
+                            <li>All incoming freshmen SY 2002-2003 are covered</li>
+                            <li>2 semesters, 54-90 hours/semester = 6 units total</li>
                             <li>NSTP Trust Fund: 70% operations, 30% contingency (CMO No. 5)</li>
-                            <li><strong>NSRC</strong> â€” National Service Reserve Corps</li>
+                            <li><strong>NSRC</strong> - National Service Reserve Corps</li>
                         </ul>
                     `
                 },
@@ -1393,68 +1407,68 @@
                     title: "Drug Education",
                     content: `
                         <div class="highlight-box" style="border-left-color:var(--pink);">
-                            <h3>?? Overview</h3>
-                            <p>Drug education is an important strategy for reducing drug-related incidents among young people. Programs build knowledge and competency to act safely, identify high-risk situations, and make safer decisions. Youth (especially teens) are most vulnerable � DDB notes most users start in teenage years due to experimentation/curiosity, with problematic backgrounds (poverty, family disintegration, relocation, discrimination) increasing vulnerability.</p>
+                            <h3>Overview</h3>
+                            <p>Drug education is an important strategy for reducing drug-related incidents among young people. Programs build knowledge and competency to act safely, identify high-risk situations, and make safer decisions. Youth (especially teens) are most vulnerable  -  DDB notes most users start in teenage years due to experimentation/curiosity, with problematic backgrounds (poverty, family disintegration, relocation, discrimination) increasing vulnerability.</p>
                         </div>
                         <div class="highlight-box">
-                            <h3>?? Activity 1: Self-Reflection � My Ecstasy Story (Kendall)</h3>
-                            <p><em>Watch:</em> <a href="https://youtu.be/OzJkKM5_NVI" target="_blank">Foundation for a Drug-Free World � Ecstasy</a></p>
+                            <h3>Activity 1: Self-Reflection  -  My Ecstasy Story (Kendall)</h3>
+                            <p><em>Watch:</em> <a href="https://youtu.be/OzJkKM5_NVI" target="_blank">Foundation for a Drug-Free World  -  Ecstasy</a></p>
                             <p>Kendall, a waitress supporting her mother/brother, goes to a rave with friend Irene, meets Matt who gives pink diamond ecstasy pills. She feels amazing, misses work, needs more pills to get same high, loses job, spends money, needs 7 pills each. Irene dehydrates and collapses; club manager and Matt refuse help. Kendall calls ambulance, learns ecstasy caused permanent damage, goes to rehab; Irene keeps selling and is arrested with Matt.</p>
                             <p><strong>Comprehension:</strong> 3 side effects? Why synthetic dangerous? Morning-after feeling? Why Kendall worked full-time? Why started? Big wake-up call? <strong>Essay:</strong> Most serious effect? What would you do if Matt offered ecstasy?</p>
                         </div>
-                        <h3>?? What are drugs?</h3>
-                        <p>Chemicals that change how bodies function. <strong>Psychoactive</strong> substances affect CNS (brain) � see/think/feel/behave differently. Common: caffeine (cola/coffee), ethanol (alcohol), nicotine (tobacco), THC (marijuana).</p>
-                        <h3>?? How are drugs taken?</h3>
+                        <h3>What are drugs?</h3>
+                        <p>Chemicals that change how bodies function. <strong>Psychoactive</strong> substances affect CNS (brain)  -  see/think/feel/behave differently. Common: caffeine (cola/coffee), ethanol (alcohol), nicotine (tobacco), THC (marijuana).</p>
+                        <h3>How are drugs taken?</h3>
                         <ul><li>Ingestion</li><li>Inhalation</li><li>Injection</li><li>Suppository</li><li>Topical</li></ul>
-                        <h3>? Why do people use?</h3>
+                        <h3>Why do people use?</h3>
                         <p>To get benefit: wake up (coffee), relax (alcohol), relieve pain, have fun, spiritual experience.</p>
-                        <h3>?? Good and bad?</h3>
-                        <p>Many drugs (medications) greatly benefit humans, but all carry risk � even prescription if misused.</p>
-                        <h3>?? Common Signs of Drug Use</h3>
+                        <h3>Good and bad?</h3>
+                        <p>Many drugs (medications) greatly benefit humans, but all carry risk  -  even prescription if misused.</p>
+                        <h3>Common Signs of Drug Use</h3>
                         <ul><li>Changes in attendance/attitude, irritable/aggressive, untrustworthy, low frustration tolerance</li><li>Lack of interest in studies, blames others, prefers peers, odd places</li><li>Poor appearance, sunglasses indoors, covering arms (needle marks), stealing, borrowing money, association with users</li></ul>
-                        <h3>?? Effects of Drug Abuse</h3>
+                        <h3>Effects of Drug Abuse</h3>
                         <ul><li><strong>Person:</strong> respiratory/digestive deterioration, manipulativeness, selfishness, depression, poor family relations</li><li><strong>Family:</strong> humiliation/guilt, low self-esteem, broken unity, domestic violence, loss of money</li><li><strong>Community:</strong> petty crimes, more dependents/pushers, fear at night, reduced interaction</li><li><strong>Society:</strong> heinous crimes, fear, moral deterioration (prostitution/pedophilia), threat to national security</li></ul>
-                        <h3>?? Risk Factors</h3>
+                        <h3>Risk Factors</h3>
                         <ul><li><strong>Family:</strong> drug use in family, poor/inconsistent management, conflict, social deprivation/isolation/poverty</li><li><strong>Social:</strong> early antisocial behavior, attitudes (low religiosity, rebelliousness, tolerance of deviance), peer pressure (strongest predictor), school failure, low commitment/attachment, neighborhood disorganization, mobility, constitutional/genetic/personality, media (advertising, stars)</li></ul>
-                        <h3>?? What is drug abuse?</h3>
+                        <h3>What is drug abuse?</h3>
                         <p>Use of licit/illicit chemical resulting in physical/mental/social impairment: (1) using useful mood-altering drugs without prescription, (2) using for different purpose than prescribed, (3) using with no legitimate medical use except research.</p>
-                        <h3>?? Commonly Abused Substances</h3>
+                        <h3>Commonly Abused Substances</h3>
                         <ul>
-                            <li><strong>Alcohol (Ethanol):</strong> drinking � slows reflexes, drowsiness, dementia, stroke, hypertension, cancer</li>
-                            <li><strong>Caffeine:</strong> coffee/tea/cocoa/soft drinks � reduces fine motor coordination, alters sleep, headache/nervousness</li>
-                            <li><strong>Nicotine (Tobacco):</strong> smoked/chewed � reduces appetite, nausea/vomiting, alertness</li>
-                            <li><strong>Marijuana (Grass/Pot):</strong> smoked/baked/brewed � impairs memory/concentration/perception/movement</li>
-                            <li><strong>Cocaine (Crack/Blow):</strong> snorted/smoked/injected � dizziness, headache, increased heart rate/BP/temperature</li>
-                            <li><strong>Ecstasy (X/Molly):</strong> oral � increased HR/BP/temperature, dehydration, nausea, cramping, teeth clenching</li>
-                            <li><strong>Shabu (Shabs/Bato):</strong> snorted � tachycardia, hypertension, arrhythmias, chest pain, dyspnea, seizures, meth mouth, pupillary dilatation</li>
-                            <li><strong>Benzodiazepines (Vs/Benzos):</strong> oral � euphoria, drowsiness, stupor/coma, respiratory depression, slurred speech</li>
+                            <li><strong>Alcohol (Ethanol):</strong> drinking  -  slows reflexes, drowsiness, dementia, stroke, hypertension, cancer</li>
+                            <li><strong>Caffeine:</strong> coffee/tea/cocoa/soft drinks  -  reduces fine motor coordination, alters sleep, headache/nervousness</li>
+                            <li><strong>Nicotine (Tobacco):</strong> smoked/chewed  -  reduces appetite, nausea/vomiting, alertness</li>
+                            <li><strong>Marijuana (Grass/Pot):</strong> smoked/baked/brewed  -  impairs memory/concentration/perception/movement</li>
+                            <li><strong>Cocaine (Crack/Blow):</strong> snorted/smoked/injected  -  dizziness, headache, increased heart rate/BP/temperature</li>
+                            <li><strong>Ecstasy (X/Molly):</strong> oral  -  increased HR/BP/temperature, dehydration, nausea, cramping, teeth clenching</li>
+                            <li><strong>Shabu (Shabs/Bato):</strong> snorted  -  tachycardia, hypertension, arrhythmias, chest pain, dyspnea, seizures, meth mouth, pupillary dilatation</li>
+                            <li><strong>Benzodiazepines (Vs/Benzos):</strong> oral  -  euphoria, drowsiness, stupor/coma, respiratory depression, slurred speech</li>
                         </ul>
-                        <p><em>Note:</em> Most used by PH teens is ecstasy variant of methamphetamine � 2.2% of 12-19y (UN 2018, highest in East Asia).</p>
-                        <h3>??? How to Avoid Drug Use</h3>
+                        <p><em>Note:</em> Most used by PH teens is ecstasy variant of methamphetamine  -  2.2% of 12-19y (UN 2018, highest in East Asia).</p>
+                        <h3>How to Avoid Drug Use</h3>
                         <ul><li>Understand addiction, get help, avoid peer pressure, wellness, accept self, develop potentials, communicate, cope, seek professional help, strong moral/spiritual foundation</li></ul>
-                        <h3>?? RA 9165 Comprehensive Dangerous Drugs Act of 2002</h3>
+                        <h3>RA 9165 Comprehensive Dangerous Drugs Act of 2002</h3>
                         <p>Intensive campaign against trafficking/use via integrated planning/enforcement; repeals RA 6425 (1972) & PD 1619 Volatile Solvents. Guides prevention/control.</p>
-                        <h3>?? CHED & TESDA (RA 9165 Art IV)</h3>
+                        <h3>CHED & TESDA (RA 9165 Art IV)</h3>
                         <ul><li>Common: in-service teacher training, monitor/evaluate, secure funds</li><li>CHED: enrich/update drug prevention in general/professional (health/science teacher) courses</li><li>TESDA: integrate in tech-voc/agro-industrial courses & materials</li></ul>
-                        <h3>?? Youth & Government Response</h3>
+                        <h3>Youth & Government Response</h3>
                         <ul><li>Legislation: 1972 Dangerous Drug Act, 2002 RA 9165, PDEA creation, data network</li><li>Response: preventive education, treatment/rehab, intensified campaigns, judicial/legislative, cooperation, drug testing, Info Line</li><li>10 Ways to Say No: Be vocal "NO", clean image, sports, choose friends positively, community projects, orgs/clubs, manage stress, seminars, family talk, enhance talents</li></ul>
-                        <div class="highlight-box" style="border-left-color:var(--green);"><h3>?? S.T.R.O.N.G.</h3><p><strong>S</strong>teadfast, <strong>T</strong>rustworthy, <strong>R</strong>espectable, <strong>O</strong>pen-minded, <strong>N</strong>oble, <strong>G</strong>ustly</p></div>
+                        <div class="highlight-box" style="border-left-color:var(--green);"><h3>S.T.R.O.N.G.</h3><p><strong>S</strong>teadfast, <strong>T</strong>rustworthy, <strong>R</strong>espectable, <strong>O</strong>pen-minded, <strong>N</strong>oble, <strong>G</strong>ustly</p></div>
 `
                 },
                 'drrm': {
                     title: "Disaster Risk Reduction & Management",
                     content: `
                         <div class="highlight-box">
-                            <h3>?? Overview</h3>
+                            <h3>Overview</h3>
                             <p>Philippines is one of the most natural hazard-prone countries. Social/economic cost rising due to population growth, land-use change, migration, unplanned urbanization, environmental degradation, climate change.</p>
                         </div>
                         <div class="highlight-box" style="border-left-color:var(--blue);">
-                            <h3>?? R.A. 10121</h3>
-                            <p><em>Philippine Disaster Risk Reduction and Management System Act</em> � strengthens system, provides national framework, institutionalizes plan, appropriates funds. Signed by President Arroyo on May 27.</p>
+                            <h3>R.A. 10121</h3>
+                            <p><em>Philippine Disaster Risk Reduction and Management System Act</em>  -  strengthens system, provides national framework, institutionalizes plan, appropriates funds. Signed by President Arroyo on May 27.</p>
                         </div>
-                        <h3>?? Disaster Management</h3>
+                        <h3>Disaster Management</h3>
                         <p>Efficient/effective utilization of resources and measures to mitigate impact, facilitate return to normalcy and redevelopment. Occurs before, during and after.</p>
-                        <h3>?? Definition of Terms</h3>
+                        <h3>Definition of Terms</h3>
                         <ul>
                             <li><strong>Hazards:</strong> situation posing threat to life/health/property/environment</li>
                             <li><strong>Risks:</strong> likelihood of harm/loss/disaster</li>
@@ -1462,27 +1476,27 @@
                             <li><strong>Disasters:</strong> serious disruption of community functioning with widespread losses exceeding ability to cope with own resources</li>
                             <li><strong>Exposure:</strong> elements affected by hazard</li>
                         </ul>
-                        <h3>?? National Disaster Preparedness Plan (NDPP)</h3>
+                        <h3>National Disaster Preparedness Plan (NDPP)</h3>
                         <p>Primary goal: avert loss of lives/assets. RA 10121 defines preparedness as knowledge/capacities of governments/organizations/communities/individuals to anticipate/respond/recover. Straddles pre-disaster, disaster and post.</p>
                         <p><strong>Objectives:</strong></p>
                         <ul><li>Increase awareness/capacity to anticipate/avoid/reduce/survive all hazards</li><li>Fully-equip communities with skills to face/survive/cope</li><li>Increase DRRM & CCA capacity of Local DRRM Councils/Offices/Centers</li><li>Develop comprehensive national/local policies/plans/systems</li><li>Strengthen partnership among all key players/stakeholders</li></ul>
-                        <h3>?? DRRM Concepts</h3>
+                        <h3>DRRM Concepts</h3>
                         <p>Accepts some hazards will occur but lessens impact by improving community's ability to absorb with minimum damage. Series of actions/instruments to reduce risk, mitigate extent. Operationally: risk assessment, prevention/mitigation, preparedness.</p>
-                        <h3>?? Disaster Risk Management Cycle</h3>
+                        <h3>Disaster Risk Management Cycle</h3>
                         <p>Prepare ? Respond ? Recover ? Mitigate ? Reduce risk ? Prevent ? Prepare ... (emergency managers life cycle).</p>
-                        <h3>? Five (5) Priorities for Action (Comprehensive Framework)</h3>
+                        <h3>Five (5) Priorities for Action (Comprehensive Framework)</h3>
                         <ul><li><strong>Governance:</strong> make DRR national/local priority with strong institutional basis</li><li><strong>Risk Assessment & Early Warning:</strong> identify/assess/monitor risk, enhance warning</li><li><strong>Knowledge Management & Education:</strong> use knowledge/innovation/education to build culture of safety/resilience</li><li><strong>Risk Management & Vulnerability Reduction:</strong> reduce underlying factors</li><li><strong>Disaster Preparedness:</strong> strengthen preparedness for effective response</li></ul>
-                        <h3>??? Disaster Risk Profile: Natural vs Human-Made</h3>
-                        <p><strong>Natural:</strong> adverse event from earth processes � earthquakes, volcanic eruptions, floods, tsunami, cyclonic storms, thunderstorms, droughts, wild fire, avalanches/landslides.</p>
-                        <p><strong>Human-Made:</strong> intent/negligence/failure of man-made system � civil disorder, terrorism, war, waste disposal, power outage, fire, criminality.</p>
-                        <h3>??? Oversight & Implementation</h3>
+                        <h3>Disaster Risk Profile: Natural vs Human-Made</h3>
+                        <p><strong>Natural:</strong> adverse event from earth processes  -  earthquakes, volcanic eruptions, floods, tsunami, cyclonic storms, thunderstorms, droughts, wild fire, avalanches/landslides.</p>
+                        <p><strong>Human-Made:</strong> intent/negligence/failure of man-made system  -  civil disorder, terrorism, war, waste disposal, power outage, fire, criminality.</p>
+                        <h3>Oversight & Implementation</h3>
                         <p>[Flowchart: NDRRMC ? OCD ? Regional/Local DRRMCs]</p>
-                        <h3>?? Youth Role in Disaster Preparedness</h3>
+                        <h3>Youth Role in Disaster Preparedness</h3>
                         <ul><li>Information dissemination, be hero/get involved, be ready/plan, know risk/save families, strong/safe community, combat climate change, assist mitigation, join CBDRRM</li></ul>
-                        <h3>? How prepared are you?</h3>
+                        <h3>How prepared are you?</h3>
                         <ol><li>Identify the risk</li><li>Develop a plan</li><li>Implement and train</li><li>Be a leader in your community</li></ol>
-                        <blockquote style="border-left:3px solid #000;padding:8px;background:#f0f0f0;">"Natural hazards are part of life. But hazards only become disasters when people's lives... we can and must reduce impact by building sustainable communities..." � International Day for Disaster, Oct 8, 2003</blockquote>
-                        <h3>?? Are You Ready? Safety Tips Activity</h3>
+                        <blockquote style="border-left:3px solid #000;padding:8px;background:#f0f0f0;">"Natural hazards are part of life. But hazards only become disasters when people's lives... we can and must reduce impact by building sustainable communities..."  -  International Day for Disaster, Oct 8, 2003</blockquote>
+                        <h3>Are You Ready? Safety Tips Activity</h3>
                         <p>Group activity: Choose earthquake/flood/typhoon/fire/volcanic eruption/Covid prevention, create 3-min video on before/during/after, upload to MT files. Rubrics: Content 40%, Cinematography 20%, Editing 20%, Audio 20%.</p>
 `
                 },
@@ -1490,53 +1504,53 @@
                     title: "Environmental Protection",
                     content: `
                         <div class="highlight-box">
-                            <h3>?? Seven Environmental Principles (Society for Conservation of Philippine Wetlands)</h3>
+                            <h3>Seven Environmental Principles (Society for Conservation of Philippine Wetlands)</h3>
                             <ol><li>Everything is connected to everything else</li><li>All forms of life are important (biodiversity)</li><li>Everything must go somewhere (too much ? pollution)</li><li>Ours is a finite earth (conservation)</li><li>Nature knows best (ecological technology)</li><li>Nature is beautiful & we are stewards of God's creation</li><li>Everything changes</li></ol>
                         </div>
-                        <h3>?? Environmental Protection & Management</h3>
-                        <p>Study of problems/solutions never more important. Modern society (2009) hooked on oil � production decreased, demand increased, +70M population/year ? emerging energy/economic crisis amid local-global environmental concerns.</p>
-                        <h3>?? Environmental Protection and Management Act of 2019 (No. 10 of 2019)</h3>
+                        <h3>Environmental Protection & Management</h3>
+                        <p>Study of problems/solutions never more important. Modern society (2009) hooked on oil  -  production decreased, demand increased, +70M population/year ? emerging energy/economic crisis amid local-global environmental concerns.</p>
+                        <h3>Environmental Protection and Management Act of 2019 (No. 10 of 2019)</h3>
                         <p>Ensure integrated decisions with authorities/NGOs/persons, preventive/remedial measures for degradation/pollution, promote understanding, regulate collection/access to environmental information, rights/obligations of State/municipalities/persons.</p>
-                        <h3>?? Environmental Education</h3>
+                        <h3>Environmental Education</h3>
                         <p>Organized efforts to teach how natural environments function and how humans can manage behavior/ecosystems to live sustainably. Increases knowledge/awareness, develops skills/expertise, fosters attitudes/motivations/commitments (UNESCO).</p>
-                        <h3>??? Environmental Protection</h3>
-                        <p>Process of keeping natural environment by everyone/org/government � sustainable action to balance utilization and values for present/next generation.</p>
-                        <h3>???? Philippine Agenda 21 (PA 21)</h3>
-                        <p>Program of action into 21st century for sustainable future � Philippines commitment to UNCED Earth Summit (Rio, Brazil, June 1992). Mix of strategies integrating national?regional with platforms/plans. Made of: Principles of Unity, Action Agenda, Implementation Strategies.</p>
-                        <h3>??? Vision of PA 21</h3>
+                        <h3>Environmental Protection</h3>
+                        <p>Process of keeping natural environment by everyone/org/government  -  sustainable action to balance utilization and values for present/next generation.</p>
+                        <h3>Philippine Agenda 21 (PA 21)</h3>
+                        <p>Program of action into 21st century for sustainable future  -  Philippines commitment to UNCED Earth Summit (Rio, Brazil, June 1992). Mix of strategies integrating national?regional with platforms/plans. Made of: Principles of Unity, Action Agenda, Implementation Strategies.</p>
+                        <h3>Vision of PA 21</h3>
                         <p>Better quality of life for all through just, moral, creative, spiritual, economically-vibrant, caring, diverse yet cohesive society with appropriate productivity, participatory democratic process, living in harmony within carrying capacity of nature and integrity of creation.</p>
-                        <h3>?? Sustainable Development (PA 21, 1996)</h3>
-                        <p>"Harmonious integration of sound and viable governance, economy, responsible social cohesion and ecological integrity, to ensure development is life-sustaining process." � Discuss 5 SDGs examples.</p>
-                        <h3>?? Five Goal Elements of Enhanced PA 21</h3>
+                        <h3>Sustainable Development (PA 21, 1996)</h3>
+                        <p>"Harmonious integration of sound and viable governance, economy, responsible social cohesion and ecological integrity, to ensure development is life-sustaining process."  -  Discuss 5 SDGs examples.</p>
+                        <h3>Five Goal Elements of Enhanced PA 21</h3>
                         <ul><li>Poverty Reduction</li><li>Social Equity</li><li>Empowerment and Governance</li><li>Peace and Solidarity</li><li>Ecological Integrity</li></ul>
-                        <h3>??? Philippine Council for Sustainable Development (PCSD)</h3>
+                        <h3>Philippine Council for Sustainable Development (PCSD)</h3>
                         <p>Multi-sectoral body to coordinate/monitor Philippine commitments to UNCED and later WSSD; spearheaded PA formulation.</p>
-                        <h3>?? 7 Key Principles Of Environmental Management</h3>
+                        <h3>7 Key Principles Of Environmental Management</h3>
                         <ul><li>Polluter Pays Principle (PPP)</li><li>User Pays Principle (UPP)</li><li>Precautionary Principle (PP)</li><li>Principle of Responsibility</li><li>Principle Of Effectiveness and Efficiency</li><li>Principle of Proportionality</li><li>Principle Of Participation</li></ul>
-                        <h3>?? Environmental Problems</h3>
+                        <h3>Environmental Problems</h3>
                         <ul><li><strong>Deforestation:</strong> climate change/flooding</li><li><strong>Pollution:</strong> world's largest single environmental health risk</li><li><strong>Water Crisis:</strong> lack of freshwater to meet demand</li><li><strong>Ozone Depletion:</strong> increased UV ? skin cancer, cataracts, immune effects</li></ul>
-                        <h3>?? Related Laws in Promoting Environment Education</h3>
+                        <h3>Related Laws in Promoting Environment Education</h3>
                         <ul>
                             <li><strong>CHED MO No.33 s.2009:</strong> Integration of Environmental Education in Tertiary Curriculum, esp. CWTS of NSTP</li>
-                            <li><strong>RA 9512:</strong> National Environmental Awareness and Education Act � promotes awareness through education</li>
-                            <li><strong>RA 9275:</strong> Philippine Clean Water Act of 2004 � comprehensive water quality management</li>
-                            <li><strong>RA 9175:</strong> Chainsaw Act of 2002 � regulates chainsaws</li>
+                            <li><strong>RA 9512:</strong> National Environmental Awareness and Education Act  -  promotes awareness through education</li>
+                            <li><strong>RA 9275:</strong> Philippine Clean Water Act of 2004  -  comprehensive water quality management</li>
+                            <li><strong>RA 9175:</strong> Chainsaw Act of 2002  -  regulates chainsaws</li>
                             <li><strong>Act No.10 of 2019:</strong> Environmental Protection and Management Act (above)</li>
                             <li><strong>RA 9147:</strong> Wildlife Resources Conservation and Protection Act of 2001</li>
                             <li><strong>RA 9003:</strong> Ecological Solid Waste Management Act of 2000</li>
-                            <li><strong>RA 8749:</strong> Philippines Clean Air Act of 1999 � comprehensive air pollution control</li>
+                            <li><strong>RA 8749:</strong> Philippines Clean Air Act of 1999  -  comprehensive air pollution control</li>
                         </ul>
-                        <h3>?? Hazardous Waste Management</h3>
+                        <h3>Hazardous Waste Management</h3>
                         <p>Comprehensive management of toxic/hazardous wastes adhering to hierarchy: source reduction ? recycling ? treatment ? safe disposal.</p>
                         <p><strong>Hazardous Waste:</strong> solid waste with concentration/physical/chemical/infectious characteristics that (1) contributes to mortality/serious irreversible illness, (2) poses hazard when improperly treated/stored/transported.</p>
                         <p><strong>Zero Waste Management:</strong> ecological handling that doesn't degrade environment/pollute air/water/soil, facilitates sanitary retrieval/reuse/recycling.</p>
-                        <h3>?? Four Characteristics of Hazardous Wastes</h3>
+                        <h3>Four Characteristics of Hazardous Wastes</h3>
                         <ul><li><strong>Ignitable:</strong> causes/enhances fires</li><li><strong>Corrosive:</strong> destroys tissues/metals</li><li><strong>Reactive:</strong> reacts/may explode</li><li><strong>Toxic:</strong> danger to health/water/food/air</li></ul>
-                        <h3>?? Three Main Goals of Hazardous Waste Management</h3>
+                        <h3>Three Main Goals of Hazardous Waste Management</h3>
                         <ul><li>Protection of the environment</li><li>Improvement of public health</li><li>Conservation of energy</li></ul>
-                        <h3>?? 7 R's of Waste Management</h3>
+                        <h3>7 R's of Waste Management</h3>
                         <p><strong>Rethink</strong> (x2), <strong>Refuse</strong>, <strong>Reduce</strong>, <strong>Reuse</strong>, <strong>Repair</strong>, <strong>Regift</strong>, <strong>Recycle</strong></p>
-                        <h3>?? Youth Role & Rights of Citizens</h3>
+                        <h3>Youth Role & Rights of Citizens</h3>
                         <ul>
                             <li>Right to breathe clean air</li>
                             <li>Right to utilize/enjoy natural resources per sustainable development</li>
@@ -1550,30 +1564,30 @@
                     title: "National Security",
                     content: `
                         <div class="highlight-box">
-                            <h3>??? Overview</h3>
-                            <p>Since 1648 (territorial states), security = protection from organized violence. McNamara (1968): security includes promotion of economic/political/social development in poor nations as (a) means preventing conflicts, (b) preserving minimal global order/stability. 1992 UNDP Human Development Report (Mahbub ul Hag): new approaches emphasize interrelationship among threats to human survival � security of all people everywhere (homes, jobs, streets, communities, environment).</p>
+                            <h3>Overview</h3>
+                            <p>Since 1648 (territorial states), security = protection from organized violence. McNamara (1968): security includes promotion of economic/political/social development in poor nations as (a) means preventing conflicts, (b) preserving minimal global order/stability. 1992 UNDP Human Development Report (Mahbub ul Hag): new approaches emphasize interrelationship among threats to human survival  -  security of all people everywhere (homes, jobs, streets, communities, environment).</p>
                         </div>
-                        <div class="highlight-box" style="border-left-color:var(--blue);"><h3>?? Pre-Test (True/False)</h3>
-                            <ol><li>National security does not play important role � <em>False</em></li><li>President serves as commander in chief in emergencies � <em>True</em></li><li>DND defends vs internal/external threats via PNP � <em>True</em></li><li>President must have at least nine other NSC members � <em>False (context)</em></li><li>Estrada reestablished NSC in 1999 via EO � <em>False (Quirino 1950, reorganized 1986)</em></li></ol>
+                        <div class="highlight-box" style="border-left-color:var(--blue);"><h3>Pre-Test (True/False)</h3>
+                            <ol><li>National security does not play important role  -  <em>False</em></li><li>President serves as commander in chief in emergencies  -  <em>True</em></li><li>DND defends vs internal/external threats via PNP  -  <em>True</em></li><li>President must have at least nine other NSC members  -  <em>False (context)</em></li><li>Estrada reestablished NSC in 1999 via EO  -  <em>False (Quirino 1950, reorganized 1986)</em></li></ol>
                         </div>
-                        <h3>?? New Era of Human Security</h3>
+                        <h3>New Era of Human Security</h3>
                         <p>Security will be interpreted as: <strong>a)</strong> security of people, not just territory, <strong>b)</strong> of individuals, not just of nations, <strong>c)</strong> through development not through arms.</p>
-                        <h3>?? National Security Defined</h3>
-                        <p>State/condition wherein values a nation treasures � territorial integrity, sovereignty, people's way of life/well-being � are protected/enhanced. Requirement to maintain survival using economic/military/political power and diplomacy.</p>
-                        <h3>??? National Security Council (NSC)</h3>
+                        <h3>National Security Defined</h3>
+                        <p>State/condition wherein values a nation treasures  -  territorial integrity, sovereignty, people's way of life/well-being  -  are protected/enhanced. Requirement to maintain survival using economic/military/political power and diplomacy.</p>
+                        <h3>National Security Council (NSC)</h3>
                         <p>Principal advisory body on coordination/integration of plans/policies affecting national security. Collegial body chaired by President. Created during Quirino Administration via EO No.330 (01 July 1950), reorganized by EO No.115 s.1986.</p>
-                        <h3>? Seven Fundamental Elements at Core of National Security</h3>
+                        <h3>Seven Fundamental Elements at Core of National Security</h3>
                         <ul><li><strong>Moral-spiritual consensus:</strong> national vision propelled by patriotism/pride/advancement of goals</li><li><strong>Cultural cohesiveness:</strong> common values/beliefs grounded on high moral/ethical standards, Filipino identity transcending religious/ethnic/linguistic</li><li><strong>Economic solidarity:</strong> free-market economy via responsible entrepreneurship/social conscience/respect for labor/public interest</li><li><strong>Socio-political stability:</strong> peace/harmony among Filipinos, nation-building under rule of law/constitutional democracy/human rights</li><li><strong>Ecological balance:</strong> conservation amid industrial/agricultural expansion/population growth</li><li><strong>Territorial integrity:</strong> permanent inviolability/effective control of territory</li><li><strong>International harmony:</strong> constructive/cordial relations, independent course free from external control/interference/aggression</li></ul>
-                        <h3>?? Threats to National Security</h3>
+                        <h3>Threats to National Security</h3>
                         <p>Many non-military: terrorism, poverty, environmental degradation.</p>
                         <p><strong>Internal dimension:</strong> defense vs hostile local elements seeking to replace government; measures vs domestic challenges to political/socio-economic order. Includes: MILF/ASG, CPP/NPA/NDF, organized crime, grave poverty, economic sabotage, graft/corruption, severe calamities, persistent environmental degradation.</p>
                         <p><strong>External dimension:</strong> safeguarding vs foreign forces/pressures/influence to conquer/undermine sovereignty/domination. Growing regional/global uncertainties: Spratly Islands multilateral dispute, smuggling of firearms/contraband/illegal migration/foreign terrorists via southwestern porous borders, lingering ASEAN currency crisis effects, economic disparity rich/poor, ethnic/religious/cultural conflict, WMD proliferation, transnational organized crimes, natural disasters/environmental issues, cybercrime.</p>
-                        <h3>?? Types of Threats</h3>
-                        <ul><li><strong>Rebellion/Insurrection:</strong> refusal of obedience/order � from civil disobedience to violent organized attempts to destroy authority</li><li><strong>Terrorism:</strong> systematic use of terror as coercion for ideological goal, deliberately targeting/disregarding non-combatants</li><li><strong>Murder:</strong> unlawful killing with intent/malice aforethought</li><li><strong>Kidnapping/Serious Illegal Detention:</strong> taking/transportation against will for ransom/further crime/custody dispute</li><li><strong>Hijacking/Highway Robbery:</strong> taking value by force/threat/fear, intent to permanently deprive</li><li><strong>Crimes involving destruction:</strong> measurable damage beyond use/repair, continuing state � self-destructive, suicide, demolition</li></ul>
+                        <h3>Types of Threats</h3>
+                        <ul><li><strong>Rebellion/Insurrection:</strong> refusal of obedience/order  -  from civil disobedience to violent organized attempts to destroy authority</li><li><strong>Terrorism:</strong> systematic use of terror as coercion for ideological goal, deliberately targeting/disregarding non-combatants</li><li><strong>Murder:</strong> unlawful killing with intent/malice aforethought</li><li><strong>Kidnapping/Serious Illegal Detention:</strong> taking/transportation against will for ransom/further crime/custody dispute</li><li><strong>Hijacking/Highway Robbery:</strong> taking value by force/threat/fear, intent to permanently deprive</li><li><strong>Crimes involving destruction:</strong> measurable damage beyond use/repair, continuing state  -  self-destructive, suicide, demolition</li></ul>
                         <p>Minimized by proper citizens values, commitment to support/act positively on national security, friendly/peaceful environment.</p>
-                        <h3>?? Role of Youth to National Threats</h3>
+                        <h3>Role of Youth to National Threats</h3>
                         <ul><li><strong>Know your rights:</strong> read up, be informed/practice</li><li><strong>Learn local issues:</strong> know community concerns affecting you</li><li><strong>Speak out:</strong> online/offline, assertive, responsible, fact-supported, respect others views</li><li><strong>Network:</strong> strength in numbers, learn initiatives</li><li><strong>Spread the word:</strong> talk to friends/family, educate/influence</li><li><strong>Join campaigns:</strong> same vision, create solutions</li><li><strong>Host youth summit:</strong> share perspectives with peers/decision makers, schools/orgs support, bring communities together</li><li><strong>Use creativity:</strong> arts/hobbies into productive action</li><li><strong>Join/create youth organization:</strong> expand knowledge, be active; if none, create</li><li><strong>Be inspiration:</strong> believe/passion ? change world</li></ul>
-                        <div class="highlight-box" style="border-left-color:var(--green);"><h3>? Post-Test</h3><p>Same 5 True/False as Pre-Test � answers updated per discussion.</p></div>
+                        <div class="highlight-box" style="border-left-color:var(--green);"><h3>Post-Test</h3><p>Same 5 True/False as Pre-Test  -  answers updated per discussion.</p></div>
 `
                 }
             };
@@ -2147,11 +2161,11 @@
         function renderSRSCard() {
             const body = document.getElementById('spaced-body');
             if (srsDueDeck.length === 0) {
-                body.innerHTML = `<div class="srs-empty">ðŸ“† All caught up!<br><span style="font-size:0.8rem;color:var(--muted);">No cards due for review right now.</span><br><br><button class="btn primary" onclick="renderSRS()">ðŸ”„ Check Again</button></div>`;
+                body.innerHTML = `<div class="srs-empty"> All caught up!<br><span style="font-size:0.8rem;color:var(--muted);">No cards due for review right now.</span><br><br><button class="btn primary" onclick="renderSRS()"> Check Again</button></div>`;
                 return;
             }
             if (srsIndex >= srsDueDeck.length) {
-                body.innerHTML = `<div class="result-screen"><h2>ðŸŽ‰ Session Complete!</h2><p>You reviewed ${srsDueDeck.length} cards.</p><button class="btn primary" onclick="renderSRS()">ðŸ” Start New Session</button></div>`;
+                body.innerHTML = `<div class="result-screen"><h2> Session Complete!</h2><p>You reviewed ${srsDueDeck.length} cards.</p><button class="btn primary" onclick="renderSRS()"> Start New Session</button></div>`;
                 return;
             }
             const card = srsDueDeck[srsIndex];
@@ -2165,13 +2179,13 @@
                     <div class="term" style="font-size:1.3rem;font-weight:900;color:var(--purple);margin-bottom:15px;text-transform:uppercase;">${card.term}</div>
                     <div class="def" id="srs-def" style="display:none;background:var(--grey);border:3px solid var(--ink);border-radius:10px;padding:15px;line-height:1.5;font-weight:bold;">${card.def}</div>
                     <div style="text-align:center;margin-top:15px;">
-                        <button class="btn primary" id="srs-show">ðŸ‘ï¸ Show Answer</button>
+                        <button class="btn primary" id="srs-show"> Show Answer</button>
                     </div>
                     <div class="srs-rating-btns" id="srs-ratings" style="display:none;">
-                        <button class="again" onclick="rateSRS('again')">ðŸ”´ Again</button>
-                        <button class="hard" onclick="rateSRS('hard')">ðŸŸ¡ Hard</button>
-                        <button class="good" onclick="rateSRS('good')">ðŸŸ¢ Good</button>
-                        <button class="easy" onclick="rateSRS('easy')">ðŸ”µ Easy</button>
+                        <button class="again" onclick="rateSRS('again')"> Again</button>
+                        <button class="hard" onclick="rateSRS('hard')"> Hard</button>
+                        <button class="good" onclick="rateSRS('good')"> Good</button>
+                        <button class="easy" onclick="rateSRS('easy')"> Easy</button>
                     </div>
                 </div>
             `;
@@ -2217,7 +2231,7 @@
 
         function renderIDCard() {
             const body = document.getElementById('identification-body');
-            if (idIndex >= idDeck.length) { body.innerHTML = `<div class="result-screen"><h2>ðŸŽ¯ Complete!</h2><button class="btn primary" onclick="renderID()">ðŸ” Start Over</button></div>`; return; }
+            if (idIndex >= idDeck.length) { body.innerHTML = `<div class="result-screen"><h2> Complete!</h2><button class="btn primary" onclick="renderID()"> Start Over</button></div>`; return; }
             const card = idDeck[idIndex];
             idAnswered = false;
             let options = [card.term];
@@ -2249,14 +2263,14 @@
             defineRevealed = false;
             body.innerHTML = `
                 <div class="define-card">
-                    <div class="define-count" style="text-align:center;color:var(--muted);font-size:0.8rem;margin-bottom:10px;">${defineIndex+1}/${defineDeck.length} Â· ${moduleLabel[item.cat]}</div>
+                    <div class="define-count" style="text-align:center;color:var(--muted);font-size:0.8rem;margin-bottom:10px;">${defineIndex+1}/${defineDeck.length}  |  ${moduleLabel[item.cat]}</div>
                     <div class="define-term">${item.term}</div>
                     <div style="color:var(--muted);font-size:0.85rem;margin-bottom:10px;">Type the definition from memory:</div>
                     <textarea class="define-textarea" id="define-input" placeholder="Type here..."></textarea>
                     <div id="define-reveal-area"></div>
                     <div class="define-footer-nav" style="display:flex;justify-content:space-between;margin-top:10px;">
-                        <button class="btn ghost" id="define-skip">Skip âž¡</button>
-                        <button class="btn primary" id="define-show">ðŸ‘ï¸ Reveal</button>
+                        <button class="btn ghost" id="define-skip">Skip  -> </button>
+                        <button class="btn primary" id="define-show"> Reveal</button>
                     </div>
                 </div>
             `;
@@ -2269,7 +2283,7 @@
             defineRevealed = true;
             const item = defineDeck[defineIndex];
             const revealArea = document.getElementById('define-reveal-area');
-            revealArea.innerHTML = `<div class="define-reveal"><strong>Correct Definition:</strong><br>${item.def}</div><div class="define-grade-btns"><button class="grade-no" id="define-missed">âŒ Missed</button><button class="grade-yes" id="define-got">âœ… Got it</button></div>`;
+            revealArea.innerHTML = `<div class="define-reveal"><strong>Correct Definition:</strong><br>${item.def}</div><div class="define-grade-btns"><button class="grade-no" id="define-missed"> Missed</button><button class="grade-yes" id="define-got"> Got it</button></div>`;
             document.getElementById('define-show').style.display = 'none';
             document.getElementById('define-got').addEventListener('click', () => gradeDefine(true));
             document.getElementById('define-missed').addEventListener('click', () => gradeDefine(false));
@@ -2404,7 +2418,7 @@
             let left = shuffle(pool.map(c => ({ id: c.id, text: c.term, type: 'term' })));
             let right = shuffle(pool.map(c => ({ id: c.id, text: c.def, type: 'def' })));
             matchSolved = 0; matchSelectedIndex = null; matchLocked = false;
-            body.innerHTML = `<div class="match-wrap"><div class="match-col"><h3>TERMS</h3>${left.map((x, i) => `<div class="match-item" data-idx="${i}" data-type="term" data-id="${x.id}">${x.text}</div>`).join('')}</div><div class="match-col"><h3>DEFS</h3>${right.map((x, i) => `<div class="match-item" data-idx="${i}" data-type="def" data-id="${x.id}">${x.text}</div>`).join('')}</div></div><div class="match-status" id="match-status">Matched: 0/${pool.length}</div><div class="win-banner" id="win-banner">ðŸŽ‰ ALL MATCHED!</div><div style="text-align:center;margin-top:15px;"><button class="btn ghost" onclick="initMatching()">ðŸ”€ Shuffle & Restart</button></div>`;
+            body.innerHTML = `<div class="match-wrap"><div class="match-col"><h3>TERMS</h3>${left.map((x, i) => `<div class="match-item" data-idx="${i}" data-type="term" data-id="${x.id}">${x.text}</div>`).join('')}</div><div class="match-col"><h3>DEFS</h3>${right.map((x, i) => `<div class="match-item" data-idx="${i}" data-type="def" data-id="${x.id}">${x.text}</div>`).join('')}</div></div><div class="match-status" id="match-status">Matched: 0/${pool.length}</div><div class="win-banner" id="win-banner"> ALL MATCHED!</div><div style="text-align:center;margin-top:15px;"><button class="btn ghost" onclick="initMatching()"> Shuffle & Restart</button></div>`;
             document.querySelectorAll('.match-item').forEach(el => el.addEventListener('click', () => selectMatch(el, pool.length)));
         }
 
@@ -2439,21 +2453,21 @@
 
             body.innerHTML = `
                 <div class="stat-card">
-                    <h3>ðŸ“Š Overall Mastery</h3>
+                    <h3> Overall Mastery</h3>
                     <div class="overall-score"><div class="big">${definePct}%</div><div class="lbl">Average Accuracy on Define</div></div>
                 </div>
                 <div class="stat-card">
-                    <h3>ðŸ“š Deck Status</h3>
+                    <h3> Deck Status</h3>
                     <div class="stat-row"><div class="stat-row-top"><span class="name">Total Flashcards</span><span class="pct">${totalCards}</span></div></div>
                     <div class="stat-row"><div class="stat-row-top"><span class="name">New / Unstudied</span><span class="pct">${totalNew}</span></div></div>
                     <div class="stat-row"><div class="stat-row-top"><span class="name">Due for Review (SRS)</span><span class="pct">${totalDue}</span></div></div>
                 </div>
                 <div class="stat-card">
-                    <h3>ðŸ“– Module Progress (SRS)</h3>
+                    <h3> Module Progress (SRS)</h3>
                     ${moduleBreakdown.map(m => `<div class="stat-row"><div class="stat-row-top"><span class="name">${moduleLabel[m.cat]}</span><span class="pct">${m.reviewed}/${m.total} Reviewed</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:${m.pct}%;background:${m.pct === 100 ? 'var(--green)' : m.pct > 50 ? 'var(--yellow)' : 'var(--pink)'};"></div></div></div>`).join('')}
                 </div>
                 <div class="stat-card">
-                    <h3>âœï¸ Define Accuracy</h3>
+                    <h3> Define Accuracy</h3>
                     <div class="stat-row"><div class="stat-row-top"><span class="name">Correct Answers</span><span class="pct">${defineCorrect} / ${defineAttempts}</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="width:${definePct}%;background:${definePct > 80 ? 'var(--green)' : definePct > 50 ? 'var(--yellow)' : 'var(--red)'};"></div></div></div>
                 </div>
             `;
